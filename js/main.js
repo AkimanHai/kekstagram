@@ -24,3 +24,19 @@ const isPassesLength = (str, count) => {
 };
 
 isPassesLength('Hello, World!', 140);
+
+
+const createPhotoDescription = () => {
+  return {
+    id: '',
+    url: '',
+    description: '',
+    likes: '',
+    comments: {
+      id: '',
+      avatar: '',
+      message: '',
+      name: '',
+    },
+  }
+};
