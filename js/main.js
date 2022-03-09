@@ -27,8 +27,26 @@ isPassesLength('Hello, World!', 140);
 
 
 const COUNT_OBJ = 25;
+const MESSAGES = [
+  'Всё отлично!',
+  'В целом всё неплохо. Но не всё.',
+  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
+  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. ',
+  'В конце концов это просто непрофессионально. ',
+];
+const NAMES = [
+  'Иван',
+  'Хуан Себастьян',
+  'Мария',
+  'Кристоф',
+  'Виктор',
+  'Юлия',
+  'Люпита',
+  'Вашингтон',
+];
 let serialNomer = 0;
 let serialId = 0;
+
 
 const getSerialNomer = () => {
   return serialNomer += 1;
@@ -39,18 +57,22 @@ const getSerialId = () => {
 };
 
 
+const createComment = () => {
+  return {
+    id: getSerialId(),
+    avatar: 'img/avatar-' + getRandomIntInclusive(1, 6) + '.svg',
+    message: '',
+    name: '',
+  };
+}
+
 const createPhotoDescription = () => {
   return {
     id: getSerialNomer(),
     url: 'photos/' + getSerialId() + '.jpg',
     description: '',
     likes: getRandomIntInclusive(15, 200),
-    comments: {
-      id: '',
-      avatar: '',
-      message: '',
-      name: '',
-    },
+    comments: '',
   }
 };
 
