@@ -44,7 +44,7 @@ const createPhotoDescription = () => {
     id: getSerialNomer(),
     url: 'photos/' + getSerialId() + '.jpg',
     description: '',
-    likes: '',
+    likes: getRandomIntInclusive(15, 200),
     comments: {
       id: '',
       avatar: '',
