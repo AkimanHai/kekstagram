@@ -26,9 +26,19 @@ const isPassesLength = (str, count) => {
 isPassesLength('Hello, World!', 140);
 
 
+const COUNT_OBJ = 25;
+
+// const getSerialNomer =  (count) => {
+//   for (let i = 1; i <= count; i++) {
+//     count += -
+//     return id = i;
+//   }
+// };
+
+
 const createPhotoDescription = () => {
   return {
-    id: '',
+    id: getRandomIntInclusive(1, COUNT_OBJ),
     url: '',
     description: '',
     likes: '',
@@ -40,3 +50,7 @@ const createPhotoDescription = () => {
     },
   }
 };
+
+
+const similarDescription = new Array(COUNT_OBJ).fill(null).map(() => createPhotoDescription());
+console.log(similarDescription);
