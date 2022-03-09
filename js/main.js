@@ -27,19 +27,22 @@ isPassesLength('Hello, World!', 140);
 
 
 const COUNT_OBJ = 25;
+let serialNomer = 0;
+let serialId = 0;
 
-// const getSerialNomer =  (count) => {
-//   for (let i = 1; i <= count; i++) {
-//     count += -
-//     return id = i;
-//   }
-// };
+const getSerialNomer = () => {
+  return serialNomer += 1;
+};
+
+const getSerialId = () => {
+  return serialId += 1;
+};
 
 
 const createPhotoDescription = () => {
   return {
-    id: getRandomIntInclusive(1, COUNT_OBJ),
-    url: '',
+    id: getSerialNomer(),
+    url: 'photos/' + getSerialId() + '.jpg',
     description: '',
     likes: '',
     comments: {
