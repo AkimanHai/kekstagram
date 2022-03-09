@@ -61,8 +61,8 @@ const createComment = () => {
   return {
     id: getSerialId(),
     avatar: 'img/avatar-' + getRandomIntInclusive(1, 6) + '.svg',
-    message: '',
-    name: '',
+    message: MESSAGES[getRandomIntInclusive(0, MESSAGES.length - 1)],
+    name: NAMES[getRandomIntInclusive(0, NAMES.length - 1)],
   };
 }
 
@@ -72,7 +72,7 @@ const createPhotoDescription = () => {
     url: 'photos/' + getSerialId() + '.jpg',
     description: '',
     likes: getRandomIntInclusive(15, 200),
-    comments: '',
+    comments: createComment(),
   }
 };
 
