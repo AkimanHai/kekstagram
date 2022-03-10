@@ -27,6 +27,13 @@ isPassesLength('Hello, World!', 140);
 
 
 const COUNT_OBJ = 25;
+const DESCRIPTIONS = [
+  'Отлично!',
+  'Хорошо.',
+  'Нормально',
+  'Фуу.',
+  'Отвратительно!',
+];
 const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -46,7 +53,7 @@ const NAMES = [
 ];
 let serialNomer = 0;
 let serialId = 0;
-
+let serialCommentId = 0;
 
 const getSerialNomer = () => {
   return serialNomer += 1;
@@ -56,12 +63,23 @@ const getSerialId = () => {
   return serialId += 1;
 };
 
+const getSerialCommentId = () => {
+  return serialCommentId += 1;
+};
+
+const getCommentMessage = () => {
+  if (getRandomIntInclusive(1, 2) === 2) {
+    return MESSAGES[getRandomIntInclusive(0, MESSAGES.length - 1)] + MESSAGES[getRandomIntInclusive(0, MESSAGES.length - 1)];
+  } else {
+    return MESSAGES[getRandomIntInclusive(0, MESSAGES.length - 1)];
+  }
+};
 
 const createComment = () => {
   return {
-    id: getSerialId(),
+    id: getSerialCommentId(),
     avatar: 'img/avatar-' + getRandomIntInclusive(1, 6) + '.svg',
-    message: MESSAGES[getRandomIntInclusive(0, MESSAGES.length - 1)],
+    message: getCommentMessage(),
     name: NAMES[getRandomIntInclusive(0, NAMES.length - 1)],
   };
 }
@@ -70,7 +88,7 @@ const createPhotoDescription = () => {
   return {
     id: getSerialNomer(),
     url: 'photos/' + getSerialId() + '.jpg',
-    description: '',
+    description: DESCRIPTIONS[getRandomIntInclusive(0, DESCRIPTIONS.length - 1)],
     likes: getRandomIntInclusive(15, 200),
     comments: createComment(),
   }
@@ -78,4 +96,4 @@ const createPhotoDescription = () => {
 
 
 const similarDescription = new Array(COUNT_OBJ).fill(null).map(() => createPhotoDescription());
-console.log(similarDescription);
+similarDescription();
