@@ -68,6 +68,7 @@ const addPhoto = () => {
         comments: addComment(),
       });
   }
+  return photos;
 };
 
 export {addPhoto};
