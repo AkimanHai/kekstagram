@@ -14,15 +14,13 @@ const getRandomIntInclusive = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-getRandomIntInclusive(0, 10);
-
 
 //Функция для проверки максимальной длины строки.
 
-const isPassesLength = (str, count) => {
-  return str.length <= count;
-};
+// const isPassesLength = (str, count) => {
+//   return str.length <= count;
+// };
 
-isPassesLength('Hello, World!', 140);
+// isPassesLength('Hello, World!', 140);
 
 export {getRandomIntInclusive};
