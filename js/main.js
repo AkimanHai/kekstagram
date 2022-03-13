@@ -93,6 +93,7 @@ const addPhoto = () => {
         comments: addComment(),
       });
   }
+  return photos;
 };
 
 addPhoto();
