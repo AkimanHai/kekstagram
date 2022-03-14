@@ -23,4 +23,22 @@ const getRandomIntInclusive = (min, max) => {
 
 // isPassesLength('Hello, World!', 140);
 
-export {getRandomIntInclusive};
+
+//Функция, которая генерирует уникальные числа
+const makeUniqueRandomIntegerGenerator = (min, max) => {
+  const previousValues = [];
+
+  return () => {
+    let currentValue = getRandomIntInclusive(min, max);
+    if (previousValues.length >= (max - min + 1)) {
+      throw new Error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
+    }
+    while (previousValues.includes(currentValue)) {
+      currentValue = getRandomIntInclusive(min, max);
+    }
+    previousValues.push(currentValue);
+    return currentValue;
+  };
+};
+
+export {getRandomIntInclusive, makeUniqueRandomIntegerGenerator};

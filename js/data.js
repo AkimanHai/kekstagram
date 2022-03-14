@@ -1,4 +1,4 @@
-import {getRandomIntInclusive} from './util.js';
+import {getRandomIntInclusive, makeUniqueRandomIntegerGenerator} from './util.js';
 
 // количество фото
 const PHOTO_COUNT = 25;
@@ -61,8 +61,8 @@ const addPhoto = () => {
   for (let i = 1; i <= PHOTO_COUNT; i++) {
     photos.push(
       {
-        id: i,
-        url: 'photos/' + i + '.jpg',
+        id: makeUniqueRandomIntegerGenerator(1, 25),
+        url: 'photos/' + (i) + '.jpg',
         description: DESCRIPTIONS[getRandomIntInclusive(0, DESCRIPTIONS.length - 1)],
         likes: getRandomIntInclusive(15, 200),
         comments: addComment(),
