@@ -41,4 +41,6 @@ const makeUniqueRandomIntegerGenerator = (min, max) => {
   };
 };
 
-export {getRandomIntInclusive, makeUniqueRandomIntegerGenerator};
+const getUniqueRandomInteger = makeUniqueRandomIntegerGenerator(1, 500);
+
+export {getRandomIntInclusive, getUniqueRandomInteger};
